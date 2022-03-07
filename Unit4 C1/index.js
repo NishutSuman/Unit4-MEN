@@ -9,10 +9,10 @@ app.get("/books",(req,res)=>{
     return res.send({route: "/books"});
 })
 app.get("/libraries",checkPermission('librarian'),(req,res)=>{
-    return res.send({ route: "/libraries", permission: req.allow});
+    return res.send({ route: "/libraries", permission: req.allow, checkPermission:req.type});
 })
 app.get("/authors",checkPermission('author'),(req,res)=>{
-    return res.send({ route: "/authors", permission: req.allow});
+    return res.send({ route: "/authors", permission: req.allow, checkPermission:req.type});
 })
 
 function allLogger(req,res,next){
@@ -26,6 +26,7 @@ function checkPermission(role){
         return function checkPermission(req,res,next){
             if(req.path==="/libraries"){
                 req.allow=true;
+                req.type= 'librarian';
                 console.log('Check Permission for library is running...')
             }
             next()
@@ -35,7 +36,8 @@ function checkPermission(role){
         return function checkPermission(req,res,next){
             if(req.path==="/authors"){
                 req.allow=true;
-                console.log('Check Permission for author is running...')
+                req.type='author';
+                console.log('Check Permission for author is running...');
             }
             next()
             console.log("Author handler finished...")
