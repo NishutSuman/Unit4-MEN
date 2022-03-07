@@ -1,0 +1,113 @@
+>>>--------D1--S2--U4-----Assignment-------->
+
+**create a database called assignment**
+use assignment
+
+**create a collection called user**
+db.createCollection("users")
+
+** Insert one document using insert **
+db.users.insert({
+    "first_name":"Nishut",
+    "last_name":"Suman",
+    "email":"nishut@mail.com",
+    "gender":"male",
+    "ip-address":"127.0.0",
+    "age":21
+})
+
+
+** Insert nine documents using insertMany **
+db.users.insert([
+    {
+    "first_name":"Masai",
+    "last_name":"School",
+    "email":"masai@mail.com",
+    "gender":"others",
+    "ip-address":"127.0.0",
+    "age":3
+    },
+    {
+    "first_name":"Pablo",
+    "last_name":"Parker",
+    "email":"pablo@mail.com",
+    "gender":"male",
+    "ip-address":"127.0.0",
+    "age":36
+    },
+    {
+    "first_name":"Nishut",
+    "last_name":"Suman",
+    "email":"nishut@mail.com",
+    "gender":"male",
+    "ip-address":"127.0.0",
+    "age":21
+    },
+    {
+    "first_name":"Nishut",
+    "last_name":"Suman",
+    "email":"nishut@mail.com",
+    "gender":"male",
+    "ip-address":"127.0.0",
+    "age":21
+    },
+    {
+    "first_name":"Nishut",
+    "last_name":"Suman",
+    "email":"nishut@mail.com",
+    "gender":"male",
+    "ip-address":"127.0.0",
+    "age":21
+    },
+    {
+    "first_name":"Nishut",
+    "last_name":"Suman",
+    "email":"nishut@mail.com",
+    "gender":"male",
+    "ip-address":"127.0.0",
+    "age":21
+    },
+    {
+    "first_name":"Nishut",
+    "last_name":"Suman",
+    "email":"nishut@mail.com",
+    "gender":"male",
+    "ip-address":"127.0.0",
+    "age":21
+    },
+    {
+    "first_name":"Nishut",
+    "last_name":"Suman",
+    "email":"nishut@mail.com",
+    "gender":"male",
+    "ip-address":"127.0.0",
+    "age":21
+    },
+    {
+    "first_name":"Nishut",
+    "last_name":"Suman",
+    "email":"nishut@mail.com",
+    "gender":"male",
+    "ip-address":"127.0.0",
+    "age":21
+    }
+])
+
+** Update at least 3 documents using update  **
+db.users.update({"first_name":"Masai"}, {$set:{"email":"masai.school@gmail.com"}})
+
+
+** Update at least 3 documents using update  **
+db.users.updateMany({"first_name":"Nishut"}, {$set:{"last_name":"john"}})
+
+**  Delete documents using remove, remove that will remove just 1 document **
+db.users.remove({"first_name": "Nishut"}, 1)
+
+**  Delete One Document Using deleteOne **
+db.users.deleteOne({"first_name":"Pablo"});
+
+**  Delete Many Document Using deleteMany **
+db.users.deleteMany({"first_name":"Nishut"},5)
+
+** delete the database **
+db.dropDatabase()
