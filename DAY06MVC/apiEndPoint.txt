@@ -1,0 +1,22 @@
+Find API end Point------
+
+Q.1 find all books written by an author
+
+localhost:4000/authors/622a4c20d02c1cfe0a1f2cff
+
+
+
+Q.2 find books in a section
+
+localhost:4000/sections/622a3c9620e71c81c6be0592
+
+
+Q.3 find books in a section that are not checked out
+
+localhost:4000/sections/622a3c9620e71c81c6be0592
+
+
+
+Q.4 find books of 1 author inside a section Optional
+
+localhost:4000/sections/622a3c9620e71c81c6be0592
