@@ -24,11 +24,13 @@ router.get("", async (req, res) => {
 	}
 });
 
-router.patch("/:pid",authenticate, async (req, res) => {
+router.patch("/:pid", authenticate, async (req, res) => {
 	try {
 		const post = await Post.findByIdAndUpdate(req.params.pid, req.body, {
 			new: true,
-		}).lean().exec();
+		})
+			.lean()
+			.exec();
 		const msg = "Post updated successfully !";
 		return res.status(200).send({ msg, post });
 	} catch (err) {
@@ -45,3 +47,4 @@ router.delete("/:pid", authenticate, async (req, res) => {
 		return res.status(500).send({ message: err.message });
 	}
 });
+module.exports = router;
